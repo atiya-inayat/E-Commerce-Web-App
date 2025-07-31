@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProduct } from "../api/product";
+import ProductCard from "../components/ProductCard";
 
 const ProductPage = () => {
   const { data, isLoading, isError } = useQuery({
@@ -21,10 +22,7 @@ const ProductPage = () => {
         <h2>All Products</h2>
         <div>
           {data.products.map((product) => (
-            <div key={product.id}>
-              <h3>{product.title}</h3>
-              <p>${product.price}</p>
-            </div>
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </div>
