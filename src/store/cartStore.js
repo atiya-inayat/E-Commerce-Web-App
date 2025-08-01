@@ -18,6 +18,17 @@ const useCartStore = create((set, get) => ({
       set({ cartItems: [...cartItems, { ...product, quantity: 1 }] });
     }
   },
+
+  removeBtn: (id) => {
+    const cartItems = get().cartItems;
+    const updatedCartItem = cartItems.filter((item) => item.id !== id);
+    set({ cartItems: updatedCartItem });
+  },
+
+  totalPrice: () => {
+    const cartItems = get().cartItems;
+    return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  },
 }));
 
 export default useCartStore;
