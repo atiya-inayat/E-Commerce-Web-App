@@ -30,7 +30,7 @@ const useCartStore = create((set, get) => ({
     return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
   },
   clearCart: () => {
-    const cartItems = get().cartItems;
+    // const cartItems = get().cartItems;
     if (window.confirm("Are you sure you want to clear cart")) {
       set({ cartItems: [] });
       console.log("item deleted...");

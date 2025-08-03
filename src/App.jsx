@@ -8,12 +8,17 @@ import CartPage from "./pages/CartPage";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/products" />} />
-      <Route path="/products" element={<ProductPage />} />
-      <Route path="/products/:id" element={<ProductDetailPage />} />
-      <Route path="/cart" element={<CartPage />} />
-    </Routes>
+    <>
+      <div>
+        <h1>ShopHub</h1>
+      </div>
+      <Routes>
+        <Route path="/" element={<Navigate to="/products" />} />
+        <Route path="/products" element={<ProductPage />} />
+        <Route path="/products/:id" element={<ProductDetailPage />} />
+        <Route path="/cart" element={<CartPage />} />
+      </Routes>
+    </>
   );
 }
 
