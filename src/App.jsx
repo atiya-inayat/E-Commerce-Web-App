@@ -5,14 +5,25 @@ import { Navigate } from "react-router-dom";
 import ProductPage from "./pages/ProductPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CartPage from "./pages/CartPage";
-import Navabar from "./components/Navabar";
+import Navbar from "./components/Navbar";
 import CheckoutPage from "./components/CheckoutPage";
+import { Toaster } from "react-hot-toast";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import { useEffect } from "react";
+import useAuthStore from "./store/authStore";
 
 function App() {
+  const checkAuth = useAuthStore((state) => state.checkAuth());
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
+
   return (
     <>
       <div>
-        <Navabar />
+        <Navbar />
+        <Toaster />
       </div>
       <Routes>
         <Route path="/" element={<Navigate to="/products" />} />
@@ -20,6 +31,8 @@ function App() {
         <Route path="/products/:id" element={<ProductDetailPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </>
   );
