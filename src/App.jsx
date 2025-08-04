@@ -12,9 +12,10 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import { useEffect } from "react";
 import useAuthStore from "./store/authStore";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  const checkAuth = useAuthStore((state) => state.checkAuth());
+  const checkAuth = useAuthStore((state) => state.checkAuth);
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
@@ -29,8 +30,22 @@ function App() {
         <Route path="/" element={<Navigate to="/products" />} />
         <Route path="/products" element={<ProductPage />} />
         <Route path="/products/:id" element={<ProductDetailPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route
+          path="/cart"
+          element={
+            <ProtectedRoute>
+              <CartPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <ProtectedRoute>
+              <CheckoutPage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>

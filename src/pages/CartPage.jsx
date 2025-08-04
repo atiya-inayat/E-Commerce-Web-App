@@ -1,6 +1,7 @@
 import React from "react";
 import useCartStore from "../store/cartStore";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CartPage = () => {
   const cartItems = useCartStore((state) => state.cartItems);
