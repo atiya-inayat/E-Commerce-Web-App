@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProduct } from "../api/product";
 import ProductCard from "../components/ProductCard";
+import Footer from "../components/Footer";
 
 const ProductPage = () => {
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const [originalProduct, setOriginalProduct] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [page, setPage] = useState(1);
-  const limit = 10;
+  const limit = 12;
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["products", page],
@@ -73,50 +74,74 @@ const ProductPage = () => {
   return (
     <>
       <div className="productList-container">
-        <h2>All Products</h2>
-        <input
-          type="text"
-          placeholder="Search Item Here"
-          value={searchQuery}
-          onChange={handleSearch}
-        />
         <div>
-          <div>
-            {categories.map((category) => (
-              <button key={category} onClick={() => filterByCategory(category)}>
-                {category
-                  .split(" ")
-                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                  .join(" ")}
-              </button>
-            ))}
-
-            <button onClick={() => filterByPrice(500)}>Under (500)</button>
-            <button onClick={resetFilters}>All</button>
+          <div className="header-cont">
+            <h2 className="products-heading">All Products</h2>
+            <input
+              className="search-input"
+              type="text"
+              placeholder="Search Item Here"
+              value={searchQuery}
+              onChange={handleSearch}
+            />
           </div>
-          <div>
-            <select onChange={(e) => handleSort(e.target.value)}>
-              <option value="">Sort By</option>
-              <option value="low-to-high">Price: Low to High</option>
-              <option value="high-to-low">Price: High to Low</option>
-            </select>
+          <div className="category-cont">
+            <div>
+              {categories.map((category) => (
+                <button
+                  className="category"
+                  key={category}
+                  onClick={() => filterByCategory(category)}
+                >
+                  {category
+                    .split(" ")
+                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(" ")}
+                </button>
+              ))}
+
+              <button className="category" onClick={() => filterByPrice(500)}>
+                Under (500)
+              </button>
+              <button className="category" onClick={resetFilters}>
+                All
+              </button>
+            </div>
+            <div>
+              <select
+                className="sort"
+                onChange={(e) => handleSort(e.target.value)}
+              >
+                <option className="option" value="">
+                  Sort By
+                </option>
+                <option className="option" value="low-to-high">
+                  Price: Low to High
+                </option>
+                <option className="option" value="high-to-low">
+                  Price: High to Low
+                </option>
+              </select>
+            </div>
           </div>
         </div>
 
-        <div>
+        <div className="item-cont">
           {displayedProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
 
-        <div>
+        <div className="prev-next-btn-cont">
           <button
+            className="prev-next-btn"
             disabled={page === 1}
             onClick={() => setPage((prev) => prev - 1)}
           >
-            Prev
+            Previous
           </button>
           <button
+            className="prev-next-btn"
             onClick={() => setPage((prev) => prev + 1)}
             disabled={data?.products?.length < limit}
           >
@@ -124,6 +149,7 @@ const ProductPage = () => {
           </button>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

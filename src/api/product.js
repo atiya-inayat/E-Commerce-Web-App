@@ -1,6 +1,6 @@
 const apiUrl = import.meta.env.VITE_API_URL;
 
-export async function fetchProduct(page = 1, limit = 10) {
+export async function fetchProduct(page = 1, limit = 12) {
   console.log("making request");
   try {
     const skip = (page - 1) * limit;

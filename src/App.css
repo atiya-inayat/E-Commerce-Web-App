@@ -108,7 +108,7 @@ body {
   border: 2px solid rgb(228, 190, 190);
   font-size: 1.2rem;
   box-shadow: 4px 3px 5px rgb(129, 65, 65);
-  background-color: #d4bbbb;
+  background-color: #e9d3d3;
   cursor: pointer;
   transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -132,4 +132,190 @@ body {
 .login-signup-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(49, 49, 49, 0.3);
+}
+
+.productList-container {
+  /* background-color: #d4bbbb; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center;
+  justify-content: center; */
+}
+
+.header-cont {
+  /* background-color: fuchsia; */
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.products-heading {
+  font-size: 2.2rem;
+  font-family: var(--secondary-italic-font);
+  margin-left: 5rem;
+}
+
+.search-input {
+  padding: 12px 20px;
+  margin-right: 5rem;
+  border-radius: 10px;
+  background-color: var(--primary-l-bg-color);
+}
+
+.category-cont {
+  /* background-color: palevioletred; */
+  display: flex;
+  height: 50px;
+  align-items: center;
+  justify-content: end;
+  gap: 4rem;
+  margin-bottom: 1rem;
+}
+
+.category {
+  padding: 10px;
+  font-size: 1.2rem;
+  margin: 0 1rem;
+  border-radius: 10px;
+  border: 1px solid rgb(241, 211, 211);
+  background-color: var(--primary-l-bg-color);
+
+  cursor: pointer;
+}
+
+.category:hover {
+  transform: scale(1.05);
+  box-shadow: 2px 4px 12px rgb(76, 4, 4);
+  background-color: var(--primary-l-color);
+  color: var(--primary-l-bg-color);
+  border: 1px solid rgb(75, 3, 3);
+}
+
+.sort {
+  padding: 10px;
+  font-size: 1.2rem;
+  margin: 0 1rem;
+  border-radius: 10px;
+  border: 1px solid rgb(241, 211, 211);
+  background-color: var(--primary-l-bg-color);
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: var(--primary-l-color);
+  color: var(--primary-l-bg-color);
+}
+
+.item-cont {
+  /* background-color: #d4bbbb; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.product-card {
+  background-color: var(--primary-l-bg-color);
+  border: 1px solid rgb(226, 209, 209);
+  box-shadow: 2px 5px 5px rgb(217, 208, 208);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.product-img {
+  width: 70%;
+}
+
+.product-img:hover {
+  transform: scale(1.1) translateY(-10px); /* Pop out effect */
+  z-index: 2;
+}
+
+.product-title {
+  font-size: 2rem;
+  font-family: var(--secondary-italic-font);
+  color: #3c3b41;
+}
+
+.product-price {
+  font-size: 1.4rem;
+  color: gray;
+  font-weight: 700;
+  font-family: var(--secondary-italic-font);
+}
+
+.link-btn-cont {
+  margin-top: 1rem;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.P-detail-link {
+  padding: 15px;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: var(--primary-l-color);
+}
+
+.add-to-cart-btn {
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-family: var(--secondary-italic-font);
+  border: 2px solid rgb(228, 190, 190);
+  font-size: 1.2rem;
+  box-shadow: 4px 3px 5px rgb(198, 187, 187);
+  background-color: var(--primary-l-color);
+  color: var(--primary-l-bg-color);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.add-to-cart-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(49, 49, 49, 0.3);
+}
+
+.prev-next-btn-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.prev-next-btn {
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-family: var(--secondary-italic-font);
+  border: 2px solid rgb(228, 190, 190);
+  font-size: 1.2rem;
+  box-shadow: 4px 3px 5px rgb(198, 187, 187);
+  background-color: var(--primary-l-color);
+  color: var(--primary-l-bg-color);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.footer-cont {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  background-color: black;
+  color: white;
+}
+
+.footer {
+  font-size: 1.5rem;
+}
+
+.product-detail-cont {
+  background-color: cadetblue;
 }
