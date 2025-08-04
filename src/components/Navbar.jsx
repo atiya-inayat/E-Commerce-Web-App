@@ -18,41 +18,51 @@ const Navbar = () => {
   };
 
   return (
-    <div>
-      <h1>ShopHub</h1>
+    <div className="navbar-cont">
+      <div className="navbar-heading-cont">
+        <h1 className="navbar-heading">ShopHub</h1>
+      </div>
 
-      <Link to="/cart">
-        <FaShoppingCart size={34} />
+      <div className="cart-logout-cont">
+        <Link to="/cart">
+          <FaShoppingCart className="cart-icon" size={34} />
 
-        {totalQty > 0 && (
-          <span
-            style={{
-              //   position: "absolute",
-              top: "-8px",
-              right: "-10px",
-              background: "red",
-              color: "white",
-              borderRadius: "50%",
-              padding: "2px 6px",
-              fontSize: "12px",
-            }}
-          >
-            {" "}
-            {totalQty}
-          </span>
+          {totalQty > 0 && (
+            <span
+              style={{
+                // position: "absolute",
+                top: "-8px",
+                right: "-10px",
+                background: "red",
+                color: "white",
+                borderRadius: "50%",
+                padding: "3px 6px",
+                fontSize: "15px",
+              }}
+            >
+              {" "}
+              {totalQty}
+            </span>
+          )}
+        </Link>
+        {user ? (
+          <>
+            {/* <span>Welcome, {user.email}</span> */}
+            <button className="logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link className="login-signup-btn" to="/login">
+              Login
+            </Link>
+            <Link className="login-signup-btn" to="/signup">
+              Signup
+            </Link>
+          </>
         )}
-      </Link>
-      {user ? (
-        <>
-          <span>Welcome, {user.email}</span>
-          <button onClick={handleLogout}>Logout</button>
-        </>
-      ) : (
-        <>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Signup</Link>
-        </>
-      )}
+      </div>
     </div>
   );
 };

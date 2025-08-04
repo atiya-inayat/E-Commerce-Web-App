@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchProduct } from "../api/product";
 import ProductCard from "../components/ProductCard";
 
-const ProductPage = ({ children }) => {
+const ProductPage = () => {
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const [originalProduct, setOriginalProduct] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
