@@ -5,12 +5,13 @@ import { auth } from "../firebase";
 
 const useAuthStore = create((set) => ({
   user: null,
+  isAuthChecked: false,
 
   setUser: (user) => set({ user }),
 
   checkAuth: () => {
     onAuthStateChanged(auth, (user) => {
-      set({ user });
+      set({ user, isAuthChecked: true });
     });
   },
 

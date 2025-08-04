@@ -40,3 +40,14 @@
 .read-the-docs {
   color: #888;
 } */
+
+:root {
+  --primary-l-bg-color: #f0ead6;
+  --primary-l-color: #701c1c;
+  --primary-d-bg-color: #1f1c2c;
+  --primary-d-color: #928dab;
+}
+
+body {
+  background-color: var(--primary-l-bg-color);
+}

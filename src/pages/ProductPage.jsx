@@ -3,16 +3,21 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchProduct } from "../api/product";
 import ProductCard from "../components/ProductCard";
 
-const ProductPage = () => {
+const ProductPage = ({ children }) => {
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const [originalProduct, setOriginalProduct] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [page, setPage] = useState(1);
+  const limit = 10;
+
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["products"],
-    queryFn: fetchProduct,
+    queryKey: ["products", page],
+    queryFn: () => fetchProduct(page, limit),
   });
 
   useEffect(() => {
+    console.log("fetched data", data);
+
     if (data?.products) {
       setOriginalProduct(data.products);
       setDisplayedProducts(data.products);
@@ -67,7 +72,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <div>
+      <div className="productList-container">
         <h2>All Products</h2>
         <input
           type="text"
@@ -102,6 +107,21 @@ const ProductPage = () => {
           {displayedProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
+        </div>
+
+        <div>
+          <button
+            disabled={page === 1}
+            onClick={() => setPage((prev) => prev - 1)}
+          >
+            Prev
+          </button>
+          <button
+            onClick={() => setPage((prev) => prev + 1)}
+            disabled={data?.products?.length < limit}
+          >
+            Next
+          </button>
         </div>
       </div>
     </>

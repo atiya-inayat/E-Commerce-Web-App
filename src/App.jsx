@@ -13,12 +13,19 @@ import Login from "./pages/Login";
 import { useEffect } from "react";
 import useAuthStore from "./store/authStore";
 import ProtectedRoute from "./components/ProtectedRoute";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   const checkAuth = useAuthStore((state) => state.checkAuth);
+  const isAuthChecked = useAuthStore((state) => state.isAuthChecked);
+
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
+
+  if (!isAuthChecked) {
+    return <p>Loading...</p>; // Wait for Firebase to finish
+  }
 
   return (
     <>
@@ -27,8 +34,18 @@ function App() {
         <Toaster />
       </div>
       <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
         <Route path="/" element={<Navigate to="/products" />} />
-        <Route path="/products" element={<ProductPage />} />
+        <Route
+          path="/products"
+          element={
+            <PrivateRoute>
+              <ProductPage></ProductPage>
+            </PrivateRoute>
+          }
+        />
         <Route path="/products/:id" element={<ProductDetailPage />} />
         <Route
           path="/cart"
@@ -46,8 +63,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
       </Routes>
     </>
   );
