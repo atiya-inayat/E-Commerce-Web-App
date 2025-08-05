@@ -23,14 +23,20 @@ const ProductDetailPage = () => {
   return (
     <>
       <div className="product-detail-cont">
-        <img src={images?.[0]} alt={title} />
-        <h1>{title}</h1>
-        <p>{description}</p>
-        <h3>${price}</h3>
-        <p>Rating: {rating}</p>
+        <div className="det-img-cont">
+          <img className="product-det-img" src={images?.[0]} alt={title} />
+        </div>
+        <div>
+          <h1>{title}</h1>
+          <p>{description}</p>
+          <h3>${price}</h3>
+          <p>Rating: {rating}</p>
 
-        <button onClick={() => addToCart(data)}>Add to Cart</button>
-        <button onClick={() => navigate(-1)}>Back </button>
+          <div>
+            <button onClick={() => addToCart(data)}>Add to Cart</button>
+            <button onClick={() => navigate(-1)}>Back </button>
+          </div>
+        </div>
       </div>
     </>
   );
