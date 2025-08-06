@@ -55,6 +55,8 @@
   --primary-italic-font: "Pacifico", sans-serif;
   --secondary-italic-font: "Oleo Script", sans-serif;
   --secondary-normal-font: "Archivo Narrow", sans-serif;
+
+  --accent-color: #007bff; /* Default accent color */
 }
 
 * {
@@ -693,10 +695,141 @@ body {
 }
 
 .signup-cont {
-  background-color: wheat;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  border: 1px solid rgb(215, 213, 213);
+  border-radius: 15px;
+  width: 600px;
+  box-shadow: 2px 2px 2px rgb(204, 202, 202);
+}
+
+.signup-heading {
+  font-size: 3rem;
+  font-family: var(--secondary-normal-font);
+  margin-bottom: 3rem;
+}
+
+.email-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+label {
+  font-size: 1.5rem;
+}
+
+.signup-email {
+  padding: 15px 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(215, 213, 213);
+  background-color: var(--primary-l-bg-color);
+  margin-bottom: 10px;
+}
+
+.pass-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.signup-btn-cont {
+  width: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 3rem;
+}
+
+.signup-btn {
+  padding: 10px 20px;
+  border-radius: 15px;
+  background-color: var(--primary-l-color);
+  color: var(--primary-l-bg-color);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.login-main-cont {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signup-cont {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  border: 1px solid rgb(215, 213, 213);
+  border-radius: 15px;
+  width: 600px;
+  box-shadow: 2px 2px 2px rgb(204, 202, 202);
+}
+
+.login-h-cont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.login-btn-cont {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.login-submit-btn {
+  padding: 10px 20px;
+  border-radius: 15px;
+  background-color: var(--primary-l-color);
+  color: var(--primary-l-bg-color);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.navbar-cont {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.productList-container {
+  display: flex;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.item-cont {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* .header-cont {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hotpink;
+} */
+
+.category-cont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

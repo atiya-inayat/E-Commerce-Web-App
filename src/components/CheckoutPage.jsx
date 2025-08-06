@@ -30,7 +30,9 @@ const CheckoutPage = () => {
               <hr />
             </div>
           ))}
-          <h3 className="total checkout-total">Total: ${totalPrice()}</h3>
+          <h3 className="total checkout-total">
+            Total: ${totalPrice().toFixed(2)}
+          </h3>
           <button className="place-order-btn" onClick={handleOrder}>
             Place Order
           </button>

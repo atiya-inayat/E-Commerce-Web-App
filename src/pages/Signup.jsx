@@ -25,7 +25,7 @@ const Signup = () => {
     <>
       <div className="signup-main-cont">
         <div className="signup-cont">
-          <h2>Create Account</h2>
+          <h2 className="signup-heading">Create Account</h2>
           <form onSubmit={handleSignup}>
             <div className="email-cont">
               <label> Email</label>
@@ -51,7 +51,11 @@ const Signup = () => {
               />
             </div>
 
-            <button type="submit">Sign Up</button>
+            <div className="signup-btn-cont">
+              <button className="signup-btn" type="submit">
+                Sign Up
+              </button>
+            </div>
           </form>
         </div>
       </div>

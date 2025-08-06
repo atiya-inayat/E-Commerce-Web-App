@@ -74,55 +74,53 @@ const ProductPage = () => {
   return (
     <>
       <div className="productList-container">
-        <div>
-          <div className="header-cont">
-            <h2 className="products-heading">All Products</h2>
-            <input
-              className="search-input"
-              type="text"
-              placeholder="Search Item Here"
-              value={searchQuery}
-              onChange={handleSearch}
-            />
-          </div>
-          <div className="category-cont">
-            <div>
-              {categories.map((category) => (
-                <button
-                  className="category"
-                  key={category}
-                  onClick={() => filterByCategory(category)}
-                >
-                  {category
-                    .split(" ")
-                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                    .join(" ")}
-                </button>
-              ))}
-
-              <button className="category" onClick={() => filterByPrice(500)}>
-                Under (500)
-              </button>
-              <button className="category" onClick={resetFilters}>
-                All
-              </button>
-            </div>
-            <div>
-              <select
-                className="sort"
-                onChange={(e) => handleSort(e.target.value)}
+        <div className="header-cont">
+          <h2 className="products-heading">All Products</h2>
+          <input
+            className="search-input"
+            type="text"
+            placeholder="Search Item Here"
+            value={searchQuery}
+            onChange={handleSearch}
+          />
+        </div>
+        <div className="category-cont">
+          <div>
+            {categories.map((category) => (
+              <button
+                className="category"
+                key={category}
+                onClick={() => filterByCategory(category)}
               >
-                <option className="option" value="">
-                  Sort By
-                </option>
-                <option className="option" value="low-to-high">
-                  Price: Low to High
-                </option>
-                <option className="option" value="high-to-low">
-                  Price: High to Low
-                </option>
-              </select>
-            </div>
+                {category
+                  .split(" ")
+                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(" ")}
+              </button>
+            ))}
+
+            <button className="category" onClick={() => filterByPrice(500)}>
+              Under (500)
+            </button>
+            <button className="category" onClick={resetFilters}>
+              All
+            </button>
+          </div>
+          <div>
+            <select
+              className="sort"
+              onChange={(e) => handleSort(e.target.value)}
+            >
+              <option className="option" value="">
+                Sort By
+              </option>
+              <option className="option" value="low-to-high">
+                Price: Low to High
+              </option>
+              <option className="option" value="high-to-low">
+                Price: High to Low
+              </option>
+            </select>
           </div>
         </div>
 
