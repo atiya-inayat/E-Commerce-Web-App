@@ -12,8 +12,8 @@ const CheckoutPage = () => {
 
   const handleOrder = () => {
     // Simulate sending order
-    toast.success("Order placed successfully!");
     clearCartAfterOrder();
+    toast.success("Order placed successfully!");
   };
 
   return (
