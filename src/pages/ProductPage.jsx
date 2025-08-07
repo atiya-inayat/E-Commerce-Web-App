@@ -38,8 +38,15 @@ const ProductPage = () => {
   const categories = [...new Set(originalProduct.map((item) => item.category))];
 
   if (isLoading) {
-    return <p>Loading Product....</p>;
+    return (
+      <>
+        <div className="loader-cont">
+          <span className="loader"></span>;
+        </div>
+      </>
+    );
   }
+
   if (isError) {
     return <p>Something went wrong </p>;
   }
@@ -74,18 +81,18 @@ const ProductPage = () => {
   return (
     <>
       <div className="productList-container">
-        <div className="header-cont">
-          <h2 className="products-heading">All Products</h2>
-          <input
-            className="search-input"
-            type="text"
-            placeholder="Search Item Here"
-            value={searchQuery}
-            onChange={handleSearch}
-          />
-        </div>
-        <div className="category-cont">
-          <div>
+        <div className="first-top-cont">
+          <div className="header-cont">
+            <h2 className="products-heading">All Products</h2>
+            <input
+              className="search-input"
+              type="text"
+              placeholder="Search Item Here"
+              value={searchQuery}
+              onChange={handleSearch}
+            />
+          </div>
+          <div className="category-cont">
             {categories.map((category) => (
               <button
                 className="category"
@@ -105,8 +112,6 @@ const ProductPage = () => {
             <button className="category" onClick={resetFilters}>
               All
             </button>
-          </div>
-          <div>
             <select
               className="sort"
               onChange={(e) => handleSort(e.target.value)}

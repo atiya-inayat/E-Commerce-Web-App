@@ -29,10 +29,8 @@ function App() {
 
   return (
     <>
-      <div>
-        <Navbar />
-        <Toaster />
-      </div>
+      <Navbar />
+      <Toaster />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

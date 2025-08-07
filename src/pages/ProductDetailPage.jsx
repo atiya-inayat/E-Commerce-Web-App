@@ -15,7 +15,15 @@ const ProductDetailPage = () => {
 
   const navigate = useNavigate();
 
-  if (isLoading) return <p>Loading product...</p>;
+  if (isLoading) {
+    return (
+      <>
+        <div className="loader-cont">
+          <span className="loader"></span>;
+        </div>
+      </>
+    );
+  }
   if (isError) return <p>Something went wrong.</p>;
 
   const { images, title, description, price, rating } = data;

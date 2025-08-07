@@ -8,7 +8,13 @@ const PrivateRoute = ({ children }) => {
 
   console.log({ user, isAuthChecked });
   if (!isAuthChecked) {
-    return <p>Loading...</p>;
+    return (
+      <>
+        <div className="loader-cont">
+          <span className="loader"></span>;
+        </div>
+      </>
+    );
   }
 
   return user ? children : <Navigate to="/login" />;

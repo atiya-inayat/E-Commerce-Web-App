@@ -25,25 +25,9 @@ const Navbar = () => {
 
       <div className="cart-logout-cont">
         <Link to="/cart">
-          <FaShoppingCart className="cart-icon" size={34} />
+          <FaShoppingCart className="cart-icon" />
 
-          {totalQty > 0 && (
-            <span
-              style={{
-                // position: "absolute",
-                top: "-8px",
-                right: "-10px",
-                background: "red",
-                color: "white",
-                borderRadius: "50%",
-                padding: "3px 6px",
-                fontSize: "15px",
-              }}
-            >
-              {" "}
-              {totalQty}
-            </span>
-          )}
+          {totalQty > 0 && <span className="cart-quantity"> {totalQty}</span>}
         </Link>
         {user ? (
           <>
