@@ -42,8 +42,8 @@ function App() {
       {/* Show only if route is not login/signup */}
       <Toaster />
       <Routes>
-        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
 
         <Route path="/" element={<Navigate to="/products" />} />
         <Route
