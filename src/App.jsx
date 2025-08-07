@@ -27,7 +27,13 @@ function App() {
   }, [checkAuth]);
 
   if (!isAuthChecked) {
-    return <p>Loading...</p>; // Wait for Firebase to finish
+    return (
+      <>
+        <div className="loader-cont">
+          <span className="loader"></span>;
+        </div>
+      </>
+    ); // Wait for Firebase to finish
   }
 
   return (
