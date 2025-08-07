@@ -58,11 +58,14 @@ const Signup = () => {
               </button>
             </div>
           </form>
-        </div>
-        <div className="login-confirmation-cont">
-          <p>
-            Already have an account? <Link to="/login">Login here</Link>
-          </p>
+          <div className="login-signup-confirmation-cont">
+            <p className="login-signup-query-para">
+              Already have an account?{" "}
+              <Link className="login-signup-link" to="/login">
+                Login here
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </>

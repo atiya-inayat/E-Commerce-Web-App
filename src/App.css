@@ -814,6 +814,23 @@ label {
   cursor: pointer;
 }
 
+.login-signup-confirmation-cont {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.login-signup-query-para {
+  font-size: 1rem;
+  font-family: var(--secondary-normal-font);
+}
+
+.login-signup-link {
+  text-decoration: none;
+}
+
 .loader,
 .loader:before,
 .loader:after {

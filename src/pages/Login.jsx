@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -58,11 +59,14 @@ const Login = () => {
               </button>
             </div>
           </form>
-        </div>
-        <div className="sigh-confirmation">
-          <p>
-            Don't have an account? <Link to="/signup">Create one</Link>
-          </p>
+          <div className="login-signup-confirmation-cont">
+            <p className="login-signup-query-para">
+              Don't have an account?{" "}
+              <Link className="login-signup-link" to="/signup">
+                Create one
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </>
