@@ -87,7 +87,9 @@ const CartPage = () => {
         </div>
 
         <div className="order-summary-cont">
-          <h1 className="summ-heading">Order Summary</h1>
+          <div className="summ-heading-cont">
+            <h1 className="summ-heading">Order Summary</h1>
+          </div>
           <div className="total-cont">
             <h2 className="total">Total:</h2>
             <h3 className="total-price"> ${totalPrice().toFixed(2)}</h3>

@@ -6,12 +6,14 @@ import { useNavigate } from "react-router-dom";
 const CheckoutPage = () => {
   const cartItems = useCartStore((state) => state.cartItems);
   const totalPrice = useCartStore((state) => state.totalPrice);
+  const { clearCartAfterOrder } = useCartStore();
 
   const navigate = useNavigate();
 
   const handleOrder = () => {
     // Simulate sending order
     toast.success("Order placed successfully!");
+    clearCartAfterOrder();
   };
 
   return (

@@ -14,11 +14,14 @@ import { useEffect } from "react";
 import useAuthStore from "./store/authStore";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PrivateRoute from "./components/PrivateRoute";
+import { useLocation } from "react-router-dom";
 
 function App() {
   const checkAuth = useAuthStore((state) => state.checkAuth);
   const isAuthChecked = useAuthStore((state) => state.isAuthChecked);
-
+  const location = useLocation();
+  const hideNavbarRoutes = ["/login", "/signup"];
+  const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
@@ -29,7 +32,8 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      {!shouldHideNavbar && <Navbar />}{" "}
+      {/* Show only if route is not login/signup */}
       <Toaster />
       <Routes>
         <Route path="/login" element={<Login />} />

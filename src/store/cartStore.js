@@ -63,6 +63,8 @@ const useCartStore = create(
           .filter((item) => item.quantity > 0); // remove item with 0 quantity
         set({ cartItems: deCrementedQty });
       },
+      clearCartAfterOrder: () => set({ cartItems: [] }),
+
       // totalQty: () => {
       //   const cartItems = get().cartItems;
       //   return cartItems.reduce((acc, item) => acc + item.quantity, 0);
