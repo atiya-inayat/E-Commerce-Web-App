@@ -16,7 +16,7 @@ const Signup = () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       toast.success("Account created Successfully");
-      navigate("/");
+      navigate("/products");
     } catch (error) {
       toast.error(error.message);
     }
@@ -26,7 +26,9 @@ const Signup = () => {
     <>
       <div className="signup-main-cont">
         <div className="signup-cont">
-          <h2 className="signup-heading">Create Account</h2>
+          <div className="signup-heading-container">
+            <h2 className="signup-heading">Create Account</h2>
+          </div>
           <form onSubmit={handleSignup}>
             <div className="email-cont">
               <label> Email</label>

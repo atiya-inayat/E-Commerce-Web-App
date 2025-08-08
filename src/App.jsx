@@ -30,7 +30,7 @@ function App() {
     return (
       <>
         <div className="loader-cont">
-          <span className="loader"></span>;
+          <span className="loader"></span>
         </div>
       </>
     ); // Wait for Firebase to finish

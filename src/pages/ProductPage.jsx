@@ -41,7 +41,7 @@ const ProductPage = () => {
     return (
       <>
         <div className="loader-cont">
-          <span className="loader"></span>;
+          <span className="loader"></span>
         </div>
       </>
     );
